@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e /usr/bin/fish
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -156,5 +156,6 @@ bar {
     tray_output primary
 }
 
+exec_always exec "us,ru" ",winkeys" "grp:alt_shift_toggle"
 exec chromium
-exec urxvt
+exec urxvt -e /usr/bin/fish
