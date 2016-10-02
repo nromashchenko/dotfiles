@@ -8,9 +8,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" color schemes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'nanotech/jellybeans.vim'
+" Plugin 'NLKNguyen/papercolor-theme'
 
 " highlighting
 Plugin 'jeaye/color_coded'
@@ -28,7 +27,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " ================================================================
-colorscheme jellybeans
+" colorscheme jellybeans
 set background=dark
 
 set tabstop=4
