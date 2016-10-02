@@ -1,66 +1,45 @@
-! цвета табов
+! enable xim-onthespot editing
+URxvt.preeditType: OnTheSpot,None
 
-*background: #222222
-*foreground: #777777
+! ---------------------------------------------------
+! Color scheme
+URxvt*background: #1A1A1A
+URxvt*foreground: #d0d0d0
 
-! --- standard colors ---
+! black
+URxvt*color0: #101010
+! deep red
+URxvt*color1: #960050
+! khaki
+URxvt*color2: #66aa11
+! orange
+URxvt*color3: #c47f2c
+! deep blue
+URxvt*color4: #30309b
+! deep purple
+URxvt*color5: #7e40a5
+! blue
+URxvt*color6: #3579a8
+! gray
+URxvt*color7: #9999aa
+! dark gray
+URxvt*color8: #303030
+! red
+URxvt*color9: #ff0090
+! green
+URxvt*color10: #80ff00
+! orange
+URxvt*color11: #ffba68
+! blue
+URxvt*color12: #5f5fee
+! purple
+URxvt*color13: #bb88dd
+! deep blue
+URxvt*color14: #4eb4fa
+! gray
+URxvt*color15: #d0d0d0
 
-! ! black
-*color0: #000000
-
-! ! bright_black
-*color8: #262626
-!
-! ! red
-*color1: #b87a7a
-!
-! ! bright_red
-*color9: #dbbdbd
-!
-! ! green
-*color2: #7ab87a
-!
-! ! bright_green
-*color10: #bddbbd
-!
-! ! yellow
-*color3: #b8b87a
-!
-! ! bright_yellow
-*color11: #dbdbbd
-!
-! ! blue
-*color4: #7a7ab8
-!
-! ! bright_blue
-*color12: #bdbddb
-!
-! ! magenta
-*color5: #b87ab8
-!
-! ! bright_magenta
-*color13: #dbbddb
-!
-! ! cyan
-*color6: #7ab8b8
-!
-! ! bright_cyan
-*color14: #bddbdb
-!
-! ! white
-*color7: #d9d9d9
-!
-! ! bright_white
-*color15: #ffffff
-
-
-!URxvt.tabbed.new-button: no
-URxvt.tabbed.tabbar-fg:  15
-URxvt.tabbed.tabbar-bg:  8
-URxvt.tabbed.tab-fg:     8
-URxvt.tabbed.tab-bg:     15
-
-! Цвета в man-страницах
+! Man pages colors
 URxvt.colorMode:         on
 URxvt.boldColors:        on
 URxvt.dynamicColors:     on
@@ -69,46 +48,31 @@ URxvt.underLine:         off
 URxvt.colorBDMode:       on
 URxvt.colorBD:           cyan
 
-!-------------------------------------
-
-! шрифт
-!URxvt.font: xft:Terminus:size=12
-URxvt*font: xft:Inconsolata:pixelsize=17:antialias=true:hinting=true
-!URxvt*boldFont: xft:Inconsolata:bold:pixelsize=17:antialias=false:hinting=true
+! ---------------------------------------------------
+! Font
+URxvt.font: xft:monaco:size=10:antialias=true:hinting=true
 
 URxvt*depth: 24
 URxvt*borderless: 1
 URxvt.transparent: true
 URxvt*.shading: 10
 
-
-! размер вывода в строках
-URxvt*saveLines: 10000
-
-! убираем скролл и границы
+URxvt*saveLines: 8192
 URxvt*scrollBar: false
 
-! первоночальный размер окна
-URxvt.geometry: 120x65
-
-! курсор
 URxvt.cursorUnderline: true
-! Будет ли курсор мигать
 URxvt.cursorBlink: true
-! Цвет курсора
-!URxvt.cursorColor: 6
-! Цвет текста, находящегося под курсором
 URxvt.cursorColor2: 6
 
-! подгружаем плагины
-URxvt.perl-ext-common:  default,matcher,url-select,tabbed,clipboard
+! Plugins
+URxvt.perl-ext-common:  default,xim-onthespot,matcher,url-select,clipboard
 
-! кликабельность ссылок в терминале
+! clickable urls
 URxvt.matcher.button:   1
 URxvt.urlLauncher:     chromium-browser
 URxvt.underlineURLs:   true
 URxvt.keysym.M-u:      perl:url-select:select_next
-! выделять ссылки голубым цветом
 URxvt.colorUL:          #86a2be
-!URxvt.underlineColor:   yellow
 
+! do not scroll with output
+URxvt*scrollTtyOutput: false
