@@ -1,7 +1,7 @@
 ! цвета табов
 
-*background: #0d1926
-*foreground: #d9e6f2
+*background: #222222
+*foreground: #777777
 
 ! --- standard colors ---
 
@@ -72,8 +72,8 @@ URxvt.colorBD:           cyan
 !-------------------------------------
 
 ! шрифт
-URxvt.font: xft:Terminus:size=12
-!URxvt*font: xft:Inconsolata:pixelsize=17:antialias=true:hinting=true
+!URxvt.font: xft:Terminus:size=12
+URxvt*font: xft:Inconsolata:pixelsize=17:antialias=true:hinting=true
 !URxvt*boldFont: xft:Inconsolata:bold:pixelsize=17:antialias=false:hinting=true
 
 URxvt*depth: 24
