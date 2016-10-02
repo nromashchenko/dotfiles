@@ -22,13 +22,18 @@ use_xft yes
 TEXT
 ,[
 
-{"full_text": "$acpitemp°C [$cpu%] ","color": "\#DC322F"},
-{"full_text": "[$membar] ", "color":"\#B58900"},
-${if_up wlp3s0}{"full_text": "${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#33CC99"},
-$else${if_up ppp0}{"full_text": "orange ","color":"\#33CC99"},
-$else${if_up enp4s0}{"full_text": "enp4s0 ","color":"\#33CC99"},
-$else{"full_text": " ≈ no connection ","color":"\#33CC99"},$endif$endif$endif
-{"full_text": "[$battery_percent%] ","color":"\#9933CC"},
+{"full_text": "cpu $acpitemp°C [$cpu%] ","color": "\#4eb4fa"},
+{"full_text": "memory [$membar] ", "color":"\#ffba68"},
+{"full_text": "${exec skb -1}", "color":"\#ff0090"},
+{"full_text": "volume ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}", "color":"\#d0d0d0"},
+
+${if_up wlp3s0}
+    {"full_text": "${wireless_essid wlp3s0} [${wireless_link_qual_perc wlp3s0}%] ","color":"\#80ff00"},
+$else ${if_up enp4s0}
+    {"full_text": "enp4s0 ","color":"\#33CC99"},
+$endif
+
+{"full_text": "battery [$battery_percent%] ","color":"\#4eb4fa"},
 {"full_text": "${time %d %b} ${time %H:%M:%S} "}
 
 ]
