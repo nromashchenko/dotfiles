@@ -1,12 +1,21 @@
 # This is the adapted version of hyperzsh theme:
 # https://github.com/tylerreckart/hyperzsh
-#
 
 
 # The prompt
-PROMPT='$(_user_host)%{$fg_bold[cyan]%}%c $(git_prompt_info)%{$reset_color%}%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
+PROMPT='${_current_user}@${_current_machine} %{$fg_bold[cyan]%}%c $(_git_branch) %{$reset_color%}➜ '
 
-local _return_status="%{$fg[red]%}%(?..⍉ )%{$reset_color%}"
+
+local _current_user="%{$fg_bold[red]%}%n%{$reset_color%}"
+local _current_machine="%{$fg_bold[white]%}%m%{$reset_color%}"
+
+
+function _git_branch() {
+    _branch=$(git_current_branch)
+    if [[ $_branch ]]; then
+        echo "%{$fg_bold[blue]%}[${_branch}]%{$reset_color%}"
+    fi
+}
 
 function _user_host() {
   if [[ -n $SSH_CONNECTION ]]; then
