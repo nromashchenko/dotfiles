@@ -1,78 +1,43 @@
-! enable xim-onthespot editing
-URxvt.preeditType: OnTheSpot,None
+! Google Material Design
 
-! ---------------------------------------------------
-! Color scheme
-URxvt*background: #1A1A1A
-URxvt*foreground: #d0d0d0
+*background 		: #263238
+*foreground 		: #eceff1
 
 ! black
-URxvt*color0: #101010
-! deep red
-URxvt*color1: #960050
-! khaki
-URxvt*color2: #66aa11
-! orange
-URxvt*color3: #c47f2c
-! deep blue
-URxvt*color4: #30309b
-! deep purple
-URxvt*color5: #7e40a5
-! blue
-URxvt*color6: #3579a8
-! gray
-URxvt*color7: #9999aa
-! dark gray
-URxvt*color8: #303030
+*color0  			: #263238
+*color8  			: #37474f
 ! red
-URxvt*color9: #ff0090
+*color1  			: #ff9800
+*color9  			: #ffa74d
 ! green
-URxvt*color10: #80ff00
-! orange
-URxvt*color11: #ffba68
+*color2  			: #8bc34a
+*color10 			: #9ccc65
+! yellow
+*color3  			: #ffc107
+*color11 			: #ffa000
 ! blue
-URxvt*color12: #5f5fee
-! purple
-URxvt*color13: #bb88dd
-! deep blue
-URxvt*color14: #4eb4fa
-! gray
-URxvt*color15: #d0d0d0
+*color4  			: #03a9f4
+*color12 			: #81d4fa
+! magenta
+*color5  			: #e91e63
+*color13 			: #ad1457
+! cyan
+*color6  			: #009688
+*color14 			: #26a69a
+! white
+*color7  			: #cfd8dc
+*color15 			: #eceff1
 
-! Man pages colors
-URxvt.colorMode:         on
-URxvt.boldColors:        on
-URxvt.dynamicColors:     on
-URxvt.colorULMode:       on
-URxvt.underLine:         off
-URxvt.colorBDMode:       on
-URxvt.colorBD:           cyan
 
-! ---------------------------------------------------
-! Font
 URxvt.font: xft:monaco:size=10:antialias=true:hinting=true
 
-URxvt*depth: 24
-URxvt*borderless: 1
-URxvt.transparent: true
-URxvt*.shading: 10
+! rxvt-unicode specific settings
+URxvt*scrollBar:          False
+URxvt*depth:              32
+URxvt*background:         [85]#1D1F21
+URxvt*intensityStyles:    True
 
-URxvt*saveLines: 8192
-URxvt*scrollBar: false
-
-URxvt.cursorUnderline: true
-URxvt.cursorBlink: true
-URxvt.cursorColor2: 6
-
-! Plugins
-URxvt.perl-ext-common:  default,xim-onthespot,matcher,url-select,clipboard
-
-! clickable urls
-URxvt.matcher.button:   1
-URxvt.urlLauncher:     chromium-browser
-URxvt.underlineURLs:   true
-URxvt.keysym.M-u:      perl:url-select:select_next
-URxvt.colorUL:          #86a2be
-
-! do not scroll with output
-URxvt*scrollTtyOutput: false
+! Sane defaults for dzen2
+dzen2.font:       xft:Share Tech:pixelsize=10
+dzen2.foreground: #22EE11
+dzen2.background: black

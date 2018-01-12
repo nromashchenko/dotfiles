@@ -83,3 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+PROMPT='%B%F{red}%n%f%b@%B%m%f%b %F{blue}%1~%f %# '
+
+# added by Miniconda3 installer
+export PATH="/home/nikolay/miniconda3/bin:$PATH"
+
+source `which virtualenvwrapper.sh`
