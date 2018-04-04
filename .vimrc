@@ -16,10 +16,11 @@ Plugin 'jeaye/color_coded'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/Syntax-for-Fasta'
 Plugin 'JuliaLang/julia-vim'
-
 Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-python/python-syntax'
+" Plugin 'nromashchenko/vim-material'
 
 
 " All of your Plugins must be added before the following line
@@ -27,8 +28,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " ================================================================
-" colorscheme jellybeans
+syntax on
 set background=dark
+colorscheme vim-material
+" colorscheme blue
+let g:airline_theme='material'
 
 set tabstop=4
 set shiftwidth=4

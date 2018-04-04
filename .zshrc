@@ -7,7 +7,29 @@ export ZSH=/home/nikolay/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="moroka"
+ZSH_THEME="materialshell"
+
+
+
+source antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+
+# Tell Antigen that you're done.
+antigen apply
+
+
+
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -83,9 +105,20 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-PROMPT='%B%F{red}%n%f%b@%B%m%f%b %F{blue}%1~%f %# '
+
+#PURE_PROMPT_SYMBOL=❯
+PURE_PROMPT_SYMBOL=$
+#PROMPT='%B%F{red}%n%f%b@%B%m%f%b %F{blue}%1~%f %# '
 
 # added by Miniconda3 installer
 export PATH="/home/nikolay/miniconda3/bin:$PATH"
 
 source `which virtualenvwrapper.sh`
+fpath=($fpath "/home/nikolay/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+#autoload -U promptinit; promptinit
+#prompt spaceship
+
+export PAGER="less"
+export EDITOR="vim"

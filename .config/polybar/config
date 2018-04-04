@@ -1,0 +1,330 @@
+;=====================================================
+; Colors used later, change here to change colors
+; in a modular way
+;=====================================================
+
+[colors]
+
+background = #E5263238
+background2 = #5D6F71
+foreground = #A1B0B8
+
+red = #FF5252
+green = #C3D82C
+cyan = #18FFFF
+magenta = #FF4081
+yellow = #FFC135
+
+main-bar-background = ${colors.background}
+modules-background  = ${colors.background}
+
+battery-icon-bgcolor = ${colors.cyan}
+volume-icon-bgcolor = ${colors.red}
+bright-icon-bgcolor = ${colors.green} 
+date-icon-bgcolor = ${colors.magenta}
+signal-icon-bgcolor = ${colors.yellow}
+
+;=====================================================
+
+;=====================================================
+; i3 colors and settings
+;=====================================================
+[wm_settings]
+focused_background   = ${colors.background2}
+unfocused_background = ${colors.background}
+unfocused_alert      = ${colors.red}
+
+padding = 1
+
+icon_focused = 
+icon_occupied = 
+icon_unfocused = 
+
+;=====================================================
+
+;=====================================================
+; Fonts 
+;=====================================================
+[fonts]
+font-0 = Monaco:pixelsize=11;3
+font-1 = Material Design Icons:size=11;3
+font-2 = Font Awesome 5 Free:style=Regular:size=10;3
+font-3 = Font Awesome 5 Free:style=Solid:size=10;3
+font-4 = Font Awesome 5 Free:style=Brand:size=10;3
+;=====================================================
+
+;=====================================================
+; Main bar
+;=====================================================
+[bar/main]
+monitor = ${env:MONITOR}
+width  = 100%
+height = 22
+radius = 6.0
+fixed-center = true
+
+offset-x = 5
+offset-y = 5
+
+background = ${colors.main-bar-background}
+
+border-size = 2
+border-color = ${colors.main-bar-background}
+
+padding-right = 0
+
+module-margin-left  = 1
+module-margin-right = 0
+
+font-0 = ${fonts.font-0}
+font-1 = ${fonts.font-1}
+font-2 = ${fonts.font-2}
+font-3 = ${fonts.font-3}
+font-4 = ${fonts.font-4}
+
+enable-ipc = true
+
+modules-left   = i3
+modules-right  = keyboard wlan volume battery date
+
+override-redirect = false
+dim-value = 1.0
+bottom = false
+
+;=====================================================
+
+;=====================================================
+; Module i3
+;=====================================================
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+;Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode = " %mode% "
+label-mode-padding    = 0
+label-mode-background = ${wm_settings.unfocused_background}
+
+; focused = Active workspace on focused monitor
+label-focused            = %index%
+label-focused-padding    = ${wm_settings.padding}
+label-focused-background = ${wm_settings.focused_background}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused            =  %index%
+label-unfocused-padding    = ${wm_settings.padding}
+label-unfocused-background = ${wm_settings.unfocused_background}
+
+; visible = Active workspace on unfocused monitor
+label-visible            =  %index%
+label-visible-padding    = ${self.label-focused-padding}
+label-visible-background = ${self.label-unfocused-background}
+
+; urgent = Workspace with urgency hint set
+label-urgent            =  %index%
+label-urgent-background = ${wm_settings.unfocused_alert}
+label-urgent-padding    = ${wm_settings.padding}
+
+;=====================================================
+
+
+;=====================================================
+; Module date and time
+;=====================================================
+[module/date]
+type = internal/date
+interval = 5
+
+; Format for date
+date = " %d %h %Y"
+
+; Format for time
+time = %H:%M
+
+format-prefix            = ""
+format-prefix-foreground = ${colors.date-icon-bgcolor}
+format-prefix-background = ${colors.modules-background}
+format-prefix-font = 2
+
+label            = "%date% %time% "
+label-background = ${colors.modules-background}
+;=====================================================
+
+
+;=====================================================
+; Module battery:
+; Shows information about the battery
+;=====================================================
+[module/battery]
+type = internal/battery
+
+; Use the following command to list batteries and adapters
+; $ ls -l /sys/class/power_supply
+battery = BAT0
+adapter = ADP0
+
+; Useful in case the battery never reports 100% charge
+full-at = 98
+
+; Time format (see "man date")
+time-format = %H:%M
+
+; Format when battery is charging
+format-charging            = <animation-charging><label-charging>
+label-charging             = " %percentage%%"
+format-charging-background = ${colors.modules-background}
+label-charging-background  = ${colors.modules-background}
+
+; Format when battery is discharging
+format-discharging            = <ramp-capacity><label-discharging>
+label-discharging             = " %percentage%%"
+format-discharging-background = ${colors.modules-background}
+label-discharging-background  = ${colors.modules-background}
+
+; Format when battery is fully charged
+format-full            = <ramp-capacity><label-full>
+format-full-background = ${colors.modules-background}
+label-full             = " Full "
+label-full-background  = ${colors.modules-background}
+
+ramp-capacity-font = 3
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-foreground = ${colors.battery-icon-bgcolor}
+ramp-capacity-background = ${colors.modules-background}
+
+animation-charging-font = 3
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.battery-icon-bgcolor}
+animation-charging-background = ${colors.modules-background}
+;=====================================================
+
+
+;=====================================================
+; Module xbacklight:
+; Shows information about the defined output's
+; backlight level
+;=====================================================
+[module/xbacklight]
+type = internal/xbacklight
+enable-scroll = true
+
+output = LVDS1
+format = <ramp><label>
+
+; format label (if <label> is present)
+label            = " %percentage%%"
+label-background = ${colors.modules-background}
+
+; format ramp (if <ramp> is present)
+ramp-font = 3
+ramp-0 = ""
+ramp-foreground = ${colors.bright-icon-bgcolor}
+ramp-background = ${colors.modules-background}
+;=====================================================
+
+
+;=====================================================
+; Module volume
+;=====================================================
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume><label-volume>
+label-volume  = " %percentage%% "
+label-volume-background = ${colors.modules-background}
+
+format-muted                    = <label-muted>
+format-muted-prefix             = " "
+format-muted-prefix-foreground  = ${colors.volume-icon-bgcolor}
+format-muted-prefix-background  = ${colors.modules-background}
+
+label-muted            = Muted
+label-muted-background = ${colors.modules-background} 
+
+ramp-volume-font = 3
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-foreground = ${colors.volume-icon-bgcolor}
+ramp-volume-background = ${colors.modules-background}
+;=====================================================
+
+
+;=====================================================
+; Module wlan
+;=====================================================
+[module/wlan]
+type      = internal/network
+interface = wlp3s0
+interval  = 1.0
+
+; Don't show it if disconnected
+format-disconnected = <label-disconnected>
+label-disconnected = "Disconnected"
+
+; When connected
+format-connected           = <ramp-signal><label-connected>
+label-connected            = " %essid%"
+label-connected-background = ${colors.main-bar-background}
+
+ramp-signal-font = 3
+ramp-signal-0 = ""
+ramp-signal-foreground = ${colors.signal-icon-bgcolor}
+ramp-signal-background = ${colors.main-bar-background}
+;=====================================================
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+format-spacing = 1
+
+label-open = 1
+label-open-foreground = ${colors.main-bar-background}
+label-close =  cancel
+label-close-foreground = ${colors.main-bar-background}
+label-separator = |
+label-separator-foreground = ${colors.main-bar-background}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2 = caps lock
+
+label-layout = %layout%
+label-layout-padding = 1
+:label-layout-background = ${colors.layout-bgcolor}
+
+[settings]
+screenchange-reload = true
