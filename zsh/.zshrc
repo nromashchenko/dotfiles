@@ -2,13 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/nikolay/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="materialshell"
-
 
 
 source antigen.zsh
@@ -24,10 +23,10 @@ antigen bundle command-not-found
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen theme carloscuesta/materialshell zsh/materialshell
 
 # Tell Antigen that you're done.
 antigen apply
-
 
 
 
@@ -111,10 +110,11 @@ PURE_PROMPT_SYMBOL=$
 #PROMPT='%B%F{red}%n%f%b@%B%m%f%b %F{blue}%1~%f %# '
 
 # added by Miniconda3 installer
-export PATH="/home/nikolay/miniconda3/bin:$PATH"
+export PATH="$HOME/miniconda3/bin:$PATH"
 
-source `which virtualenvwrapper.sh`
-fpath=($fpath "/home/nikolay/.zfunctions")
+source "$HOME/miniconda3/bin/activate" root
+
+fpath=($fpath "$HOME/.zfunctions")
 
 # Set Spaceship ZSH as a prompt
 #autoload -U promptinit; promptinit
