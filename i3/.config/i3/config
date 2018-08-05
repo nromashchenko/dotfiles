@@ -32,7 +32,7 @@ font pango:Inconsolata 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id hyper
+bindsym $mod+Return exec --no-startup-id urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
