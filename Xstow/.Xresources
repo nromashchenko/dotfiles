@@ -1,6 +1,6 @@
 !! Materialshell colorscheme: https://github.com/carloscuesta/materialshell
 
-*background: [70]#263238
+*background: #263238
 *foreground: #A1B0B8
 
 !! black dark/light
@@ -37,7 +37,8 @@
 
 
 ! rxvt-unicode specific settings
-URxvt.font: xft:monaco:size=10:antialias=true:hinting=true
+URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=true:hinting=true
 URxvt.scrollBar:          False
 URxvt.depth:              32
 URxvt.intensityStyles:    True
+URxvt.letterSpace: 1

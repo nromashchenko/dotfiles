@@ -12,15 +12,15 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'NLKNguyen/papercolor-theme'
 
 " highlighting
-Plugin 'jeaye/color_coded'
+" Plugin 'jeaye/color_coded'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/Syntax-for-Fasta'
-Plugin 'JuliaLang/julia-vim'
-Plugin 'vim-airline/vim-airline'
+" Plugin 'JuliaLang/julia-vim'
+" Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-python/python-syntax'
-" Plugin 'nromashchenko/vim-material'
+Plugin 'hzchirs/vim-material'
 
 
 " All of your Plugins must be added before the following line
@@ -31,8 +31,9 @@ filetype plugin indent on    " required
 syntax on
 set background=dark
 colorscheme vim-material
+
 " colorscheme blue
-let g:airline_theme='material'
+"let g:airline_theme='material'
 
 set tabstop=4
 set shiftwidth=4
@@ -45,7 +46,7 @@ filetype on
 au BufNewFile,BufRead *.fna set filetype=fasta
 
 
-set guifont=Terminus 
+set guifont="DejaVu Sans Mono"
 
 
 " ================================================================
@@ -114,7 +115,7 @@ if has('path_extra')
 endif
 
 if &shell =~# 'fish$'
-  set shell=/bin/bash
+  set shell=/bin/zsh
 endif
 
 set autoread
