@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -156,7 +156,7 @@ gaps outer 0
 
 
 ### Exec ###
-exec_always setxkbmap -layout us,ru -option grp:ctrl_shift_toggle
+exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec xset b off
 
 exec --no-startup-id hsetroot -solid "#263238"

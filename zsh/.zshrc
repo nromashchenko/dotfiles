@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source antigen.zsh
+source /home/nikolai/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -41,3 +41,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 export PAGER="less"
 export EDITOR="vim"
+
+export PATH=/home/nikolai/antigen:$PATH
+export PATH=/home/nikolai/miniconda3/bin:$PATH
