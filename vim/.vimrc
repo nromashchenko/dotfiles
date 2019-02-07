@@ -21,6 +21,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-python/python-syntax'
 Plugin 'hzchirs/vim-material'
+Plugin 'jceb/vim-orgmode'
 
 
 " All of your Plugins must be added before the following line

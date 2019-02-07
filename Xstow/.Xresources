@@ -41,6 +41,15 @@ URxvt.scrollBar:          False
 URxvt.depth:              32
 URxvt.intensityStyles:    True
 
-!! It''s very important to tune this variable before using any of the Powerline fonts.
+! It''s very important to tune this variable before using any of the Powerline fonts.
 ! See https://github.com/powerline/fonts/issues/176
 URxvt.letterSpace: 0
+
+
+! Colors for bold, italic and underlined text. Mostly for the man pages
+URxvt.colorIT: #000000
+URxvt.colorBD: #40C4FF
+URxvt.colorUL: #FF4081
+
+! Fade the terminal a bit if not focused
+URxvt*fading: 7
