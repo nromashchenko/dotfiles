@@ -36,7 +36,8 @@
 
 
 ! rxvt-unicode specific settings
-URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11:antialias=true:hinting=true,xft:PowerlineSymbols
+!URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11:antialias=true:hinting=true,xft:PowerlineSymbols
+URxvt.font: xft:Mononoki:size=12:antialias=true:hinting=true,xft:PowerlineSymbols
 URxvt.scrollBar:          False
 URxvt.depth:              32
 URxvt.intensityStyles:    True

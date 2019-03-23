@@ -4,8 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source /home/nikolai/antigen/antigen.zsh
+#source /home/nikolai/antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
+#
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
@@ -44,3 +46,5 @@ export EDITOR="vim"
 
 export PATH=/home/nikolai/antigen:$PATH
 export PATH=/home/nikolai/miniconda3/bin:$PATH
+export PATH=/home/nikolai/bin:$PATH
+source activate base
