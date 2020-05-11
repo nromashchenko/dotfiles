@@ -11,7 +11,7 @@
 
 ; Note: #aarrggbb, omit for solid alpha #rrggbb
 
-main-bar-background             = #262626
+main-bar-background             = #282C34
 ;=====================================================
 
 ;=====================================================
@@ -33,7 +33,7 @@ icon_unfocused = 
 ;=====================================================
 [fonts]
 font-0 = Material Design Icons:pixelsize=13;4
-font-1 = DejaVu Sans Mono:weight=none:pixelsize=9;3
+font-1 = Mononoki:weight=none:pixelsize=9;3
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;=====================================================
 
@@ -308,8 +308,8 @@ ramp-background = ${colors.main-bar-background}
 ;=====================================================
 ; Module volume
 ;=====================================================
-[module/volume]
-type = internal/volume
+[module/alse]
+type = internal/alsa
 
 format-volume = <ramp-volume><label-volume> 
 label-volume  = " %percentage%% "

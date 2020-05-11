@@ -5,15 +5,18 @@
 
 [colors]
 
-background = #E5263238
-background2 = #5D6F71
-foreground = #A1B0B8
+; Colors : https://github.com/joshdick/onedark.vim/blob/master/term/One%20Dark.Xresources
+background = #282C34
+background2 = #4B5263
+foreground = #ABB2BF
 
-red = #FF5252
-green = #C3D82C
-cyan = #18FFFF
-magenta = #FF4081
-yellow = #FFC135
+red = #E06C75
+green = #98C379
+cyan = #56B6C2
+magenta = #C678DD
+yellow = #E5C07B
+blue = #61AFEF
+white = #ABB2BF
 
 main-bar-background = ${colors.background}
 modules-background  = ${colors.background}
@@ -85,7 +88,7 @@ font-4 = ${fonts.font-4}
 enable-ipc = true
 
 modules-left   = i3
-modules-right  = keyboard wlan volume battery date
+modules-right  = cpu keyboard wlan volume battery date
 
 override-redirect = false
 dim-value = 1.0
@@ -268,7 +271,7 @@ ramp-volume-background = ${colors.modules-background}
 ;=====================================================
 [module/wlan]
 type      = internal/network
-interface = wlp3s0
+interface = wlp2s0
 interval  = 1.0
 
 ; Don't show it if disconnected
@@ -277,13 +280,50 @@ label-disconnected = "Disconnected"
 
 ; When connected
 format-connected           = <ramp-signal><label-connected>
-label-connected            = " %essid%"
+label-connected = %{A1:nm-connection-editor:} %essid%%{A}
 label-connected-background = ${colors.main-bar-background}
 
 ramp-signal-font = 3
 ramp-signal-0 = ""
 ramp-signal-foreground = ${colors.signal-icon-bgcolor}
 ramp-signal-background = ${colors.main-bar-background}
+;=====================================================
+
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+format = <bar-load> <label>
+format-background = ${color.mf}
+format-foreground = ${color.fg}
+format-padding = 1
+
+label = "%percentage%%"
+
+bar-load-width = 10
+bar-load-gradient = false
+
+bar-load-indicator = 
+bar-load-indicator-foreground = ${color.fg}
+bar-load-indicator-font = 2
+
+bar-load-fill = ━
+bar-load-foreground-0 = ${color.background}
+bar-load-foreground-1 = ${color.background}
+bar-load-foreground-2 = ${color.background}
+bar-load-foreground-3 = ${color.background}
+bar-load-foreground-4 = ${color.background}
+bar-load-foreground-5 = ${color.background2}
+bar-load-foreground-6 = ${color.background2}
+bar-load-foreground-7 = ${color.background2}
+bar-load-foreground-8 = ${color.background2}
+bar-load-fill-font = 2
+
+bar-load-empty = ┉
+bar-load-empty-foreground = ${color.fg}
+bar-load-empty-font = 2
 ;=====================================================
 
 [module/powermenu]
@@ -324,7 +364,7 @@ blacklist-2 = caps lock
 
 label-layout = %layout%
 label-layout-padding = 1
-:label-layout-background = ${colors.layout-bgcolor}
+; label-layout-background = ${colors.layout-bgcolor}
 
 [settings]
 screenchange-reload = true
