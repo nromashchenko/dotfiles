@@ -4,14 +4,18 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source /home/nikolai/antigen/antigen.zsh
+source /home/nikolai/antigen.zsh
+#source /usr/share/zsh/share/antigen.zsh
 
+#
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Load the theme
 #antigen theme carloscuesta/materialshell zsh/materialshell
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+
+#antigen theme https://github.com/benniemosher/the-one-theme TheOne
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
@@ -47,6 +51,7 @@ export PATH=/home/nikolai/miniconda3/bin:$PATH
 
 source /opt/intel/mkl/bin/mklvars.sh intel64  
 
+export PATH=/home/nikolai/bin:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -63,3 +68,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+conda activate base
+
+
+# for ssh sessions in rxvt
+export TERM=xterm-256color 

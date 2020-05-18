@@ -8,19 +8,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'nanotech/jellybeans.vim'
-" Plugin 'NLKNguyen/papercolor-theme'
-
 " highlighting
-" Plugin 'jeaye/color_coded'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/Syntax-for-Fasta'
-" Plugin 'JuliaLang/julia-vim'
 " Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-python/python-syntax'
-Plugin 'hzchirs/vim-material'
 Plugin 'jceb/vim-orgmode'
 
 
@@ -31,7 +25,7 @@ filetype plugin indent on    " required
 " ================================================================
 syntax on
 set background=dark
-colorscheme vim-material
+"colorscheme vim-material
 
 " colorscheme blue
 "let g:airline_theme='material'
@@ -47,7 +41,8 @@ filetype on
 au BufNewFile,BufRead *.fna set filetype=fasta
 
 
-set guifont="DejaVu Sans Mono"
+"set guifont="DejaVu Sans Mono"
+set guifont="Mononoki"
 
 
 " ================================================================
