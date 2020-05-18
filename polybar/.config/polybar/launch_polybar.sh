@@ -10,3 +10,4 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #MONITOR=HDMI1 polybar -r main &>/dev/null &
 #MONITOR=eDP1 polybar -r main &>/dev/null &
 MONITOR=DisplayPort-2 polybar -r main &>/dev/null &
+MONITOR=DisplayPort-0 polybar -r main &>/dev/null &

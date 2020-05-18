@@ -44,3 +44,22 @@ export EDITOR="vim"
 
 export PATH=/home/nikolai/antigen:$PATH
 export PATH=/home/nikolai/miniconda3/bin:$PATH
+
+source /opt/intel/mkl/bin/mklvars.sh intel64  
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/nikolai/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/nikolai/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nikolai/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/nikolai/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
