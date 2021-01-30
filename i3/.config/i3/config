@@ -37,6 +37,7 @@ bindsym $mod+Return exec --no-startup-id urxvt -e /bin/zsh
 # kill focused window
 bindsym $mod+Shift+q kill
 
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run -font "Mononoki 11"
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -129,6 +130,11 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'What do you want to do?' -b 'Poweroff' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Close session' ' i3-msg exit' -b 'Suspend' 'systemctl suspend'"
 
 bindsym $mod+Del exec --no-startup-id i3lock
+
+# move workspaces between monitors
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

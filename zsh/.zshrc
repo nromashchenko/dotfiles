@@ -48,6 +48,9 @@ export EDITOR="vim"
 
 export PATH=/home/nikolai/antigen:$PATH
 export PATH=/home/nikolai/miniconda3/bin:$PATH
+
+source /opt/intel/mkl/bin/mklvars.sh intel64  
+
 export PATH=/home/nikolai/bin:$PATH
 
 # >>> conda initialize >>>
