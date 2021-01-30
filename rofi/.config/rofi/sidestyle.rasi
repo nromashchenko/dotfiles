@@ -4,19 +4,19 @@
 /* ================================================= */
 
 * {
-  /* Make text color white and background fully transparent */
-  text-color:        #A1B0B8;
-  background-color:  rgba(0,0,0,0);
+  /* Make text color white and background almost transparent */
+  text-color:        #ABB2BF;
+  background-color:  #00000020;
 
   /* This variables change other elements color
    * Change here and it will change over all the
    * theme (for an unified experience) */
-  fc-color: #263238;
-  bg-color: #252525;
-  fc-color-trans: #263238; 
-  bg-color-trans: #252525;
+  fc-color: #ABB2BF;
+  bg-color: #282C34;
+  fc-color-trans: #3E4452; 
+  bg-color-trans: #282C34;
 
-  font: "Monaco 11";
+  font: "Mononoki 10";
 }
 
 /* ================================================= */
@@ -58,7 +58,6 @@
 }
 
 #button selected {
-  font:              "Open Sans SemiBold 11";
   background-color:  @fc-color-trans;
 }
 /* ================================================= */
@@ -73,11 +72,13 @@
 }
 
 #prompt {
-  font: "Open Sans SemiBold Italic 11";
+  font: "DejaVu Sans SemiBold 11";
+  background-color:  @bg-color;
 }
 
 #entry {
-  font: "Open Sans Italic 11";
+  font: "DejaVu Sans 11";
+  background-color:  @bg-color;
   width: 15em;
 }
 /* ================================================= */
@@ -91,7 +92,7 @@
 }
 
 #element {
-  font:     "Open Sans 13";
+  font:     "DejaVu Sans 12";
   padding:  12px 1.5em 12px 14px;
 }
 
