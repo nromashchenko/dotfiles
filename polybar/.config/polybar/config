@@ -88,11 +88,21 @@ font-4 = ${fonts.font-4}
 enable-ipc = true
 
 modules-left   = i3
-modules-right  = cpu keyboard wlan volume battery date
+; Laptop configuration
+;modules-right  = cpu keyboard wlan volume battery date
+; Desktop configuration
+modules-right  = cpu keyboard volume date
 
 override-redirect = false
 dim-value = 1.0
 bottom = false
+
+tray-position = right
+tray-padding = 10
+tray-background = ${colors.main-bar-background}
+tray-offset-x =
+wm-restack = i3
+;override-redirect = true
 
 ;=====================================================
 
@@ -269,24 +279,24 @@ ramp-volume-background = ${colors.modules-background}
 ;=====================================================
 ; Module wlan
 ;=====================================================
-[module/wlan]
-type      = internal/network
-interface = wlp2s0
-interval  = 1.0
+;[module/wlan]
+;type      = internal/network
+;interface = wlp2s0
+;interval  = 1.0
 
 ; Don't show it if disconnected
-format-disconnected = <label-disconnected>
-label-disconnected = "Disconnected"
+;format-disconnected = <label-disconnected>
+;label-disconnected = "Disconnected"
 
 ; When connected
-format-connected           = <ramp-signal><label-connected>
-label-connected = %{A1:nm-connection-editor:} %essid%%{A}
-label-connected-background = ${colors.main-bar-background}
+;format-connected           = <ramp-signal><label-connected>
+;label-connected = %{A1:nm-connection-editor:} %essid%%{A}
+;label-connected-background = ${colors.main-bar-background}
 
-ramp-signal-font = 3
-ramp-signal-0 = ""
-ramp-signal-foreground = ${colors.signal-icon-bgcolor}
-ramp-signal-background = ${colors.main-bar-background}
+;ramp-signal-font = 3
+;ramp-signal-0 = ""
+;ramp-signal-foreground = ${colors.signal-icon-bgcolor}
+;ramp-signal-background = ${colors.main-bar-background}
 ;=====================================================
 
 
@@ -296,8 +306,8 @@ type = internal/cpu
 interval = 0.5
 
 format = <bar-load> <label>
-format-background = ${color.mf}
-format-foreground = ${color.fg}
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 format-padding = 1
 
 label = "%percentage%%"
@@ -306,23 +316,23 @@ bar-load-width = 10
 bar-load-gradient = false
 
 bar-load-indicator = 
-bar-load-indicator-foreground = ${color.fg}
+bar-load-indicator-foreground = ${colors.foreground}
 bar-load-indicator-font = 2
 
 bar-load-fill = ━
-bar-load-foreground-0 = ${color.background}
-bar-load-foreground-1 = ${color.background}
-bar-load-foreground-2 = ${color.background}
-bar-load-foreground-3 = ${color.background}
-bar-load-foreground-4 = ${color.background}
-bar-load-foreground-5 = ${color.background2}
-bar-load-foreground-6 = ${color.background2}
-bar-load-foreground-7 = ${color.background2}
-bar-load-foreground-8 = ${color.background2}
+bar-load-foreground-0 = ${colors.background}
+bar-load-foreground-1 = ${colors.background}
+bar-load-foreground-2 = ${colors.background}
+bar-load-foreground-3 = ${colors.background}
+bar-load-foreground-4 = ${colors.background}
+bar-load-foreground-5 = ${colors.background2}
+bar-load-foreground-6 = ${colors.background2}
+bar-load-foreground-7 = ${colors.background2}
+bar-load-foreground-8 = ${colors.background2}
 bar-load-fill-font = 2
 
 bar-load-empty = ┉
-bar-load-empty-foreground = ${color.fg}
+bar-load-empty-foreground = ${colors.foreground}
 bar-load-empty-font = 2
 ;=====================================================
 
@@ -368,3 +378,5 @@ label-layout-padding = 1
 
 [settings]
 screenchange-reload = true
+
+
