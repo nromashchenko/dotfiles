@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source /home/nikolai/antigen.zsh
+source /usr/share/zsh-antigen/antigen.zsh
 #source /usr/share/zsh/share/antigen.zsh
 
 #
@@ -46,10 +46,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export PAGER="less"
 export EDITOR="vim"
 
-export PATH=/home/nikolai/antigen:$PATH
+export PATH=/usr/share/zsh-antigen/antigen:$PATH
 export PATH=/home/nikolai/miniconda3/bin:$PATH
 
-source /opt/intel/mkl/bin/mklvars.sh intel64  
+#source /opt/intel/mkl/bin/mklvars.sh intel64  
 
 export PATH=/home/nikolai/bin:$PATH
 
