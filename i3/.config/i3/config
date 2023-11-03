@@ -32,7 +32,8 @@ font pango:Inconsolata 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt -e /bin/zsh
+#bindsym $mod+Return exec --no-startup-id urxvt -e /bin/zsh
+bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -104,6 +105,7 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
+set $ws7 "7"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -112,6 +114,7 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
+bindsym $mod+7workspace $ws7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -120,6 +123,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
 
 
 # reload the configuration file
@@ -167,7 +171,7 @@ exec_always setxkbmap -layout us,ru -option grp:alt_shift_toggle
 exec xset b off
 
 exec --no-startup-id hsetroot -solid "#282C34"
-exec --no-startup-id dunst &
+exec --no-startup-id dunst &
 exec xcompmgr -c -f -n
 #exec xss-lock -- betterscreenlock -l &
 #exec --no-startup-id caffeine &

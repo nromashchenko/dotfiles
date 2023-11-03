@@ -1,34 +1,21 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+alias h='history'
+alias hs='history | grep'
+alias bat='batcat'
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source /usr/share/zsh-antigen/antigen.zsh
-#source /usr/share/zsh/share/antigen.zsh
-
-#
-# Load the oh-my-zsh's library.
+source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
-
-# Load the theme
-#antigen theme carloscuesta/materialshell zsh/materialshell
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-
-#antigen theme https://github.com/benniemosher/the-one-theme TheOne
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
 antigen bundle pip
-antigen bundle command-not-found
-
-# Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-
-
-# Tell Antigen that you're done.
 antigen apply
+
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -46,10 +33,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export PAGER="less"
 export EDITOR="vim"
 
-export PATH=/usr/share/zsh-antigen/antigen:$PATH
+export PATH=/usr/share/zsh/share/antigen:$PATH
 export PATH=/home/nikolai/miniconda3/bin:$PATH
 
-#source /opt/intel/mkl/bin/mklvars.sh intel64  
+# To fix this issue: https://askubuntu.com/questions/1351636/alacritty-failed-to-load-usr-share-icons-yaru-16x16-status-image-missing-png
+unset GDK_PIXBUF_MODULEDIR
+unset GDK_PIXBUF_MODULE_FILE
 
 export PATH=/home/nikolai/bin:$PATH
 
@@ -68,8 +57,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-conda activate base
-
+#conda activate base
 
 # for ssh sessions in rxvt
 export TERM=xterm-256color 
+
+
+# I don't like autocd
+unsetopt autocd
