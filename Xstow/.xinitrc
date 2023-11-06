@@ -18,4 +18,4 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-#exec i3 > $HOME/.i3.log 2>&1
+exec i3 > $HOME/.i3.log 2>&1

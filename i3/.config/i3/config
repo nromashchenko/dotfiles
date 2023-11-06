@@ -140,6 +140,11 @@ bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
 
+# Lock screen with i3lock-fancy-multimonitor
+# See: https://github.com/guimeira/i3lock-fancy-multimonitor
+bindsym $mod+Escape exec "bash ~/.i3/lock -p -n"
+
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 3 px or 3 ppt
@@ -172,7 +177,7 @@ exec xset b off
 
 exec --no-startup-id hsetroot -solid "#282C34"
 exec --no-startup-id dunst &
-exec xcompmgr -c -f -n
+exec xcompmgr -c -f -n -D 5
 #exec xss-lock -- betterscreenlock -l &
 #exec --no-startup-id caffeine &
 #exec bash .monitor_hotplug.sh

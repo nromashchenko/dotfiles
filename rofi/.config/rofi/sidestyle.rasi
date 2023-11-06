@@ -3,6 +3,7 @@
 /*  Suggested icon pack: Papirus                     */
 /* ================================================= */
 
+
 * {
   /* Make text color white and background almost transparent */
   text-color:        #ABB2BF;
@@ -16,7 +17,8 @@
   fc-color-trans: #3E4452; 
   bg-color-trans: #282C34;
 
-  font: "Mononoki 10";
+  /*font: "Mononoki 13";*/
+  font: "Knack Nerd Font 13";
 }
 
 /* ================================================= */
@@ -88,8 +90,7 @@
 /* List view                                         */
 /* ================================================= */
 #listview {
-  /*spacing: 0.5em;*/
-}
+  /*spacing: 0.5em;*/ }
 
 #element {
   font:     "DejaVu Sans 12";

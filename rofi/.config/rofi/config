@@ -1,6 +1,6 @@
 rofi.combi-modi: [drun];
 
-rofi.terminal:         urxvt 
+rofi.terminal:         kitty
 rofi.sidebar-mode:     true
 rofi.theme:            sidestyle.rasi
 rofi.icon-theme: Papirus
