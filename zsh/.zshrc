@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 antigen use oh-my-zsh
 antigen theme romkatv/powerlevel10k
 antigen bundle pip
-antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen apply
 
@@ -65,3 +65,5 @@ export TERM=xterm-256color
 
 # I don't like autocd
 unsetopt autocd
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

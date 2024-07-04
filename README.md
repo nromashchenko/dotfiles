@@ -7,29 +7,32 @@ Here is my attempt at adopting the wonderful Catppuccin Mocha color scheme as mu
 - polybar
 - rofi
 - kitty
-- zsh
-- starship
 - vim
 - bat
 - dunst
 - networkmanager_dmenu
+- zsh
 - zsh p10k theme (https://github.com/romkatv/powerlevel10k)
 
 # Dependencies
 
 ```
-sudo pacman -S i3 stow kitty rofi polybar zsh vim dunst
+sudo pacman -S i3 stow kitty rofi polybar zsh vim dunst sddm qt6-svg qt6-declarative
 sudo yay -S antigen oh-my-zsh-git vundle networkmanager-dmenu-git
 ```
 
-Fonts:
-```
-```
+Fonts (I took it from https://github.com/adi1090x/polybar-themes):
+
+- Iosevka Nerd Font
+- Icomoon Feather
+- Material Icons
+- Waffle (Siji)
+
 
 
 # Install
 
-## Basics
+## Stow configs into your home folder
 
 Clone the repo:
 ```
@@ -45,6 +48,14 @@ stow dunst i3 i3 kitty networkmanager_dmenu polybar rofi vim X zsh
 ```
 
 If you already have config files for a certain module, stow will complain about it. Delete it or move it somewhere else.
+
+## Other things
+
+Now, configure the tools that have configs outside of your home folder.
+
+- SDDM as described here https://github.com/catppuccin/sddm
+- GRUB as here https://github.com/catppuccin/grub
+- JupyterLab as here https://github.com/catppuccin/jupyterlab
 
 ## Tuning
 

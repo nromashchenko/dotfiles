@@ -1,41 +1,38 @@
-! One Dark colorscheme: https://github.com/joshdick/onedark.vim/blob/master/term/One%20Dark.Xresources
-
-*.foreground:   #ABB2BF
-*.background:   #282C34
-*.cursorColor:  #ABB2BF
+! Catppuccin Mocha color scheme
+*background: #1E1E2E
+*foreground: #CDD6F4
 
 ! black
-*.color0:       #5C6370
-*.color8:       #4B5263
+*color0: #45475A
+*color8: #585B70
 
 ! red
-*.color1:       #E06C75
-*.color9:       #BE5046
+*color1: #F38BA8
+*color9: #F38BA8
 
 ! green
-*.color2:       #98C379
-*.color10:      #98C379
+*color2: #A6E3A1
+*color10: #A6E3A1
 
 ! yellow
-*.color3:       #E5C07B
-*.color11:      #D19A66
+*color3: #F9E2AF
+*color11: #F9E2AF
 
 ! blue
-*.color4:       #61AFEF
-*.color12:      #61AFEF
+*color4: #89B4FA
+*color12: #89B4FA
 
 ! magenta
-*.color5:       #C678DD
-*.color13:      #C678DD
+*color5: #F5C2E7
+*color13: #F5C2E7
 
 ! cyan
-*.color6:       #56B6C2
-*.color14:      #56B6C2
+*color6: #94E2D5
+*color14: #94E2D5
 
 ! white
-*.color7:       #ABB2BF
-*.color15:      #3E4452
-
+*color7: #BAC2DE
+*color15: #A6ADC8
 
 ! rxvt-unicode specific settings
 !URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11:antialias=true:hinting=true,xft:PowerlineSymbols
