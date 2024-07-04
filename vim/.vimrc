@@ -11,24 +11,25 @@ Plugin 'VundleVim/Vundle.vim'
 " highlighting
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'vim-scripts/Syntax-for-Fasta'
-" Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'mhinz/vim-startify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-python/python-syntax'
-Plugin 'jceb/vim-orgmode'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+set termguicolors
+
 " ================================================================
 syntax on
 set background=dark
-"colorscheme vim-material
 
-" colorscheme blue
-"let g:airline_theme='material'
+colorscheme catppuccin_mocha
+let g:airline_theme='catppuccin_mocha'
 
 set tabstop=4
 set shiftwidth=4
@@ -42,7 +43,9 @@ au BufNewFile,BufRead *.fna set filetype=fasta
 
 
 "set guifont="DejaVu Sans Mono"
-set guifont="Mononoki"
+"set guifont="Mononoki"
+set guifont="CaskaydiaCove Nerd Font Mono"
+
 
 
 " ================================================================

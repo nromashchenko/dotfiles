@@ -8,9 +8,9 @@ alias bat='batcat'
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source /usr/share/zsh/share/antigen.zsh
+#source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme romkatv/powerlevel10k
 antigen bundle pip
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions

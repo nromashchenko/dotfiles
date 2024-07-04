@@ -3,20 +3,35 @@
 ; in a modular way
 ;=====================================================
 
-[colors]
+; [colors]
 
 ; Colors : https://github.com/joshdick/onedark.vim/blob/master/term/One%20Dark.Xresources
-background = #282C34
-background2 = #4B5263
-foreground = #ABB2BF
+; background = #282C34
+; background2 = #4B5263
+; foreground = #ABB2BF
 
-red = #E06C75
-green = #98C379
-cyan = #56B6C2
-magenta = #C678DD
-yellow = #E5C07B
-blue = #61AFEF
-white = #ABB2BF
+; red = #E06C75
+; green = #98C379
+; cyan = #56B6C2
+; magenta = #C678DD
+; yellow = #E5C07B
+; blue = #61AFEF
+; white = #ABB2BF
+
+
+; main-bar-background = ${colors.background}
+; modules-background  = ${colors.background}
+
+; battery-icon-bgcolor = ${colors.cyan}
+; volume-icon-bgcolor = ${colors.red}
+; bright-icon-bgcolor = ${colors.green} 
+; date-icon-bgcolor = ${colors.magenta}
+; signal-icon-bgcolor = ${colors.yellow}
+
+
+; include-file = $HOME/.config/polybar/mocha.ini
+
+[colors]
 
 main-bar-background = ${colors.background}
 modules-background  = ${colors.background}
@@ -26,6 +41,7 @@ volume-icon-bgcolor = ${colors.red}
 bright-icon-bgcolor = ${colors.green} 
 date-icon-bgcolor = ${colors.magenta}
 signal-icon-bgcolor = ${colors.yellow}
+
 
 ;=====================================================
 
