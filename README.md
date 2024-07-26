@@ -17,8 +17,8 @@ Here is my attempt at adopting the wonderful Catppuccin Mocha color scheme as mu
 # Dependencies
 
 ```
-sudo pacman -S i3 stow kitty rofi polybar zsh vim dunst sddm qt6-svg qt6-declarative
-sudo yay -S antigen oh-my-zsh-git vundle networkmanager-dmenu-git
+sudo pacman -S i3 stow kitty rofi polybar zsh vim dunst sddm qt6-svg qt6-declarative zsh-autosuggestions zsh-syntax-highlighting
+sudo yay -S oh-my-zsh-git vundle networkmanager-dmenu-git
 ```
 
 Fonts (I took it from https://github.com/adi1090x/polybar-themes):

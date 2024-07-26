@@ -29,7 +29,7 @@ syntax on
 set background=dark
 
 colorscheme catppuccin_mocha
-let g:airline_theme='catppuccin_mocha'
+let g:airline_theme = 'catppuccin_mocha'
 
 set tabstop=4
 set shiftwidth=4

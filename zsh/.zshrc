@@ -14,7 +14,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # List of plugins used
-plugins=()
+plugins=(colored-man-pages)
 source $ZSH/oh-my-zsh.sh
 
 # In case a command is not found, try to find the package that has it
@@ -116,3 +116,4 @@ if [ -f "/home/nikolai/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/home/nikolai/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+#
