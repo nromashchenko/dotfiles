@@ -36,7 +36,7 @@
 
 ! rxvt-unicode specific settings
 !URxvt.font: xft:Source\ Code\ Pro\ for\ Powerline:size=11:antialias=true:hinting=true,xft:PowerlineSymbols
-URxvt.font: xft:Mononoki:size=13:antialias=true:hinting=true,xft:PowerlineSymbols
+URxvt.font: xft:Mononoki:size=14:antialias=true:hinting=true,xft:PowerlineSymbols
 URxvt.scrollBar:          False
 URxvt.depth:              32
 URxvt.intensityStyles:    True
@@ -53,3 +53,8 @@ URxvt.colorUL: #FF4081
 
 ! Fade the terminal a bit if not focused
 URxvt*fading: 7
+
+
+! DPI for hi-resolution screens
+Xft.dpi: 144
+Xft.antialias: 1

@@ -5,6 +5,7 @@ configuration {
     disable-history:                false;
     click-to-exit: 		            true;
     location:                       0;
+    dpi:                            144;
 }
 
 @import "font.rasi"
@@ -14,10 +15,10 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         2px;
+    border:                         4px;
     border-color:                   @BDR;
-    border-radius:                  10px;
-    width:                          500px;
+    border-radius:                  20px;
+    width:                          1000px;
     anchor:                         center;
     x-offset:                       0;
     y-offset:                       0;
@@ -25,7 +26,7 @@ window {
 
 prompt {
     enabled: 			            true;
-    padding: 			            8px;
+    padding: 			            16px;
     background-color: 		        @BG;
     text-color: 		            @IMG;
 }
@@ -36,8 +37,8 @@ textbox-prompt-colon {
     border-radius:                  100%;
     background-color:               @SEL;
     text-color:                     @FG;
-    padding:                        8px 12px 8px 12px;
-    font:			                "Iosevka Nerd Font 10";
+    padding:                        16px 24px 16px 24px;
+    font:			                "Iosevka Nerd Mono Font 10";
 }
 
 entry {
@@ -48,10 +49,10 @@ entry {
     horizontal-align:               0;
     placeholder:                    "Search...";
     blink:                          true;
-    border:                  	    0px 0px 2px 0px;
+    border:                  	    0px 0px 4px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
-    padding:                        8px;
+    border-radius:                  20px;
+    padding:                        16px;
 }
 
 inputbar {
@@ -76,9 +77,9 @@ case-indicator {
 
 listview {
     background-color:               @BG;
-    columns:                        1;
+    columns:                        2;
     lines:			                7;
-    spacing:                        4px;
+    spacing:                        8px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
@@ -87,16 +88,16 @@ listview {
 mainbox {
     background-color:               @BG;
     children:                       [ inputbar, listview ];
-    spacing:                        15px;
-    padding:                        15px;
+    spacing:                        30px;
+    padding:                        30px;
 }
 
 element {
     background-color:               @BG;
     text-color:                     @FG;
     orientation:                    horizontal;
-    border-radius:                  4px;
-    padding:                        6px 6px 6px 6px;
+    border-radius:                  8px;
+    padding:                        12px 12px 12px 12px;
 }
 
 element-icon {
@@ -104,7 +105,7 @@ element-icon {
     text-color:       		        inherit;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    size:                           24px;
+    size:                           32px;
     border:                         0px;
 }
 
@@ -114,14 +115,14 @@ element-text {
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
-    margin:                         2px 0px 2px 2px;
+    margin:                         4px 0px 4px 8px;
 }
 
 element normal.urgent,
 element alternate.urgent {
     background-color:               @UGT;
     text-color:                     @FG;
-    border-radius:                  9px;
+    border-radius:                  18px;
 }
 
 element normal.active,
@@ -134,7 +135,7 @@ element selected {
     background-color:               @BGA;
     text-color:                     @SEL;
     border:                  	    0px 0px 0px 0px;
-    border-radius:                  10px;
+    border-radius:                  18px;
     border-color:                   @BDR;
 }
 
