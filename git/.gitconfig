@@ -1,0 +1,5 @@
+[user]
+	name = Nikolai Romashchenko
+	email = nikolay.romashchenko@gmail.com
+[core]
+    editor = /usr/bin/vim

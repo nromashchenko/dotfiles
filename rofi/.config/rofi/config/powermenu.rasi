@@ -1,155 +1,153 @@
+/**
+ *
+ * Authors : Aditya Shakya (adi1090x), adapted by Nikolai Romashchenko (@nromashchenko)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
 configuration {
-    show-icons:                     true;
-    display-drun: 		            "";
-    drun-display-format:            "{icon} {name}";
-    disable-history:                false;
-    click-to-exit: 		            true;
-    location:                       4;
+    show-icons:                 false;
+
+    /* Highlight an entry under the mouse pointer */
+    hover-select:               true;
+
+    /* Disable MousePrimary as an entry selector */
+    /* Without this setting you won't be able to set MousePrimary as an entry
+     acceptor. */
+    me-select-entry:            "";
+
+    /* Use either LMB single click or RMB single click or LMB double click
+     to accept an entry */
+    me-accept-entry:            [ MousePrimary, MouseSecondary, MouseDPrimary ];
+
+    dpi:                        144;
 }
 
 @import "font.rasi"
 @import "colors.rasi"
 
-/* Line Responsible For Button Layouts */
-/* BUTTON = TRUE */
 
+/*****----- Global Properties -----*****/
+* {
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             50px;
+    mainbox-margin:              50px;
+    message-margin:              0px 300px;
+    message-padding:             12px;
+    message-border-radius:       12px;
+    listview-spacing:            25px;
+    element-padding:             35px 0px;
+    element-border-radius:       120px;
+
+    prompt-font:                 "Iosevka Nerd Font Bold 32";
+    textbox-font:                "Iosevka Nerd Font 10";
+    element-text-font:           "feather 32";
+
+    background-window:           @BG;
+    background-normal:           @BG;
+    background-selected:         @BDR;
+    foreground-normal:           @FG;
+    foreground-selected:         @BG;
+}
+
+/*****----- Main Window -----*****/
 window {
-    transparency:                   "real";
-    background-color:               @BG;
-    text-color:                     @FG;
-    border:                  	    2px;
-    border-color:                   @BGA;
-    border-radius:                  10px;
-    width:                          110px;
-    x-offset:                       -1%;
-    y-offset:                       0;
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1000px;
+    border:                      4px;
+    border-color:                @BDR;
+    border-radius:               50px;
+    cursor:                      "default";
+    background-color:            var(background-window);
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
+    background-color:            transparent;
+    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    background-color:            transparent;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
 }
 
 prompt {
-    enabled: 			            true;
-    margin: 			            0px 0px 0px 8px;
-    padding: 			            8px;
-    background-color: 		        @BG;
-    text-color: 		            @FG;
-    border:                  	    0px 0px 2px 0px;
-    border-color:                   @BDR;
-    border-radius:                  10px;
+    enabled:                     true;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
 }
 
-textbox-prompt-colon {
-    expand: 			            false;
-    str: 			                "";
-    border-radius:                  100%;
-    background-color:               @BG;
-    text-color:                     @BG;
-    padding:                        8px 12px 8px 12px;
-    font:			                "Iosevka Nerd Font 10";
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            @BG;
+    text-color:                  @FG;
+}
+textbox {
+    font:                        var(textbox-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
 }
 
-entry {
-    background-color:               @BG;
-    text-color:                     @FG;
-    placeholder-color:              @FG;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search...";
-    blink:                          true;
-    border:                  	    0px 0px 2px 0px;
-    border-color:                   @BDR;
-    border-radius:                  10px;
-    padding:                        8px;
-}
-
-inputbar {
-    children: 		                [ textbox-prompt-colon ];
-    background-color:               @BG;
-    text-color:                     @FG;
-    expand:                         false;
-    border:                  	    0px 0px 0px 0px;
-    border-radius:                  0px;
-    border-color:                   @BDR;
-    margin:                         0px 0px 0px 0px;
-    padding:                        0px;
-    position:                       center;
-}
-
-case-indicator {
-    background-color:               @BG;
-    text-color:                     @FG;
-    spacing:                        0;
-}
-
-
+/*****----- Listview -----*****/
 listview {
-    background-color:               @BG;
-    columns:                        1;
-    lines:			                5;
-    spacing:                        15px;
-    cycle:                          true;
-    dynamic:                        true;
-    layout:                         vertical;
+    enabled:                     true;
+    expand:                      false;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     var(listview-spacing);
+    background-color:            transparent;
+    cursor:                      "default";
 }
 
-mainbox {
-    background-color:               @BG;
-    children:                       [ listview ];
-    spacing:                        15px;
-    padding:                        15px;
-}
-
+/*****----- Elements -----*****/
 element {
-    background-color:               @BG;
-    text-color:                     @FG;
-    orientation:                    horizontal;
-    border-radius:                  10px;
-    padding:                        20px;
+    enabled:                     true;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+    cursor:                      pointer;
 }
-
-element-icon {
-    background-color: 		        inherit;
-    text-color:       		        inherit;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    size:                           0px;
-    border:                         0px;
-}
-
 element-text {
-    background-color: 		        inherit;
-    text-color:       		        inherit;
-    font:			                "feather 20";
-    expand:                         true;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    margin:                         0px 0px 0px 0px;
+    font:                        var(element-text-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
 }
-
-element selected {
-    background-color:               @BGA;
-    text-color:                     @SEL;
-    border:                  	    0px 0px 0px 0px;
-    border-radius:                  10px;
-    border-color:                   @BDR;
-}
-
-element.active,
-element.selected.urgent {
-  background-color: @ON;
-  text-color: @BG;
-  border-color: @ON;
-}
-
-element.selected.urgent {
-  border-color: @BDR;
-}
-
-element.urgent,
-element.selected.active {
-  background-color: @OFF;
-  text-color: @BG;
-  border-color: @OFF;
-}
-
-element.selected.active {
-  border-color: @BDR;
+element selected.normal {
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
 }

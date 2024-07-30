@@ -5,10 +5,37 @@ configuration {
     disable-history:                false;
     click-to-exit: 		            true;
     location:                       0;
+    dpi:                            144;
 }
 
 @import "font.rasi"
 @import "colors.rasi"
+
+* {
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background);
+    selected-urgent-background:  var(active);
+    selected-urgent-foreground:  var(background);
+    selected-active-background:  var(urgent);
+    selected-active-foreground:  var(background);
+    alternate-normal-background: var(background);
+    alternate-normal-foreground: var(foreground);
+    alternate-urgent-background: var(urgent);
+    alternate-urgent-foreground: var(background);
+    alternate-active-background: var(active);
+    alternate-active-foreground: var(background);
+}
 
 window {
     transparency:                   "real";
@@ -17,7 +44,7 @@ window {
     border:                         2px;
     border-color:                   @BDR;
     border-radius:                  10px;
-    width:                          300px;
+    width:                          600px;
     anchor:                         center;
     x-offset:                       0;
     y-offset:                       0;
@@ -25,8 +52,8 @@ window {
 
 prompt {
     enabled: 			            true;
-    margin: 			            0px 8px 0px 8px;
-    padding: 			            8px;
+    margin: 			            0px 16px 0px 8px;
+    padding: 			            16px;
     background-color: 	            @IMG;
     text-color: 	                @BG;
     border:                  	    0px 0px 0px 0px;
@@ -40,7 +67,7 @@ textbox-prompt-colon {
     border-radius:                  100%;
     background-color:               @SEL;
     text-color:                     @FG;
-    padding:                        8px 12px 8px 12px;
+    padding:                        16px 24px 16px 24px;
     font:			                "Iosevka Nerd Font 10";
 }
 
@@ -81,11 +108,19 @@ case-indicator {
 listview {
     background-color:               @BG;
     columns:                        1;
-    lines:			    7;
+    lines:			                7;
     spacing:                        4px;
     cycle:                          true;
     dynamic:                        true;
     layout:                         vertical;
+    scrollbar:                      true;
+}
+
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @handle-colour;
+    border-radius:               10px;
+    background-color:            @alternate-background;
 }
 
 mainbox {

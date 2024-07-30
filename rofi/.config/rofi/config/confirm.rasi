@@ -1,24 +1,105 @@
-@import "colors.rasi"
-@import "font.rasi"
+/**
+ *
+ * Author : Aditya Shakya (adi1090x), Nikolai Romashchenko (nromashchenko)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
 
-* {
-    background-color:       @BG;
-    text-color:             @FG;
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            [ MousePrimary, MouseSecondary, MouseDPrimary ];
+
+    dpi:                        144;
 }
 
+/*****----- Global Properties -----*****/
+@import                          "colors.rasi"
+@import                          "font.rasi"
+
+/*****----- Main Window -----*****/
 window {
-    width:      	        200px;
-    padding:                20px;
-    border:		            0px 0px 2px 0px;
-    border-radius:          8px;
-    border-color:           @BDR;
-    location:               0;
-    x-offset:               0;
-    y-offset:               -4%;
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       500px;
+
+    cursor:                      "default";
+    background-color:            @BG;
+
+    border:                      4px;
+    border-color:                @BDR;
+    border-radius:               50px;
 }
 
-entry {
-    expand: 		        true;
-    width: 		            150px;
-    text-color:		        @BDR;
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     50px;
+    padding:                     50px;
+    background-color:            transparent;
+    children:                    [ "message", "listview" ];
+}
+
+/*****----- Message -----*****/
+message {
+    margin:                      0px;
+    padding:                     12px;
+    border-radius:               12px;
+    background-color:            @BG;
+    text-color:                  @FG;
+}
+
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    placeholder-color:           @FG;
+    blink:                       true;
+    markup:                      true;
+    font:                        "Iosevka Nerd Font Bold 16";
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                     2;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     35px;
+    background-color:            transparent;
+    text-color:                  @FG;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    padding:                     45px 0px;
+    border-radius:               120px;
+    background-color:            @BG;
+    text-color:                  @FG;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "feather 32";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            @BDR;
+    text-color:                  @BG;
 }

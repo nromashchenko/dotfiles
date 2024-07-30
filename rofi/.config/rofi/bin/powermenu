@@ -1,119 +1,108 @@
 #!/usr/bin/env bash
-rofi_command="rofi -theme $HOME/.config/rofi/config/powermenu.rasi"
 
-uptime=$(uptime -p | sed -e 's/up //g')
+## Author : Aditya Shakya (adi1090x)
+## Github : @adi1090x
+#
+## Rofi   : Power Menu
+#
+## Available Styles
+#
+## style-1   style-2   style-3   style-4   style-5
+
+# Current Theme
+dir="$HOME/.config/rofi/config"
+
+# CMDs
+uptime="`uptime -p | sed -e 's/up //g'`"
+host=`hostname`
 
 # Options
-if [[ "$DIR" == "powermenus" ]]; then
-	shutdown=""
-	reboot=""
-	lock=""
-	suspend=""
-	logout=""
-	ddir="$HOME/.config/rofi/config"
-else
+shutdown=''
+reboot=''
+lock=''
+suspend=''
+logout=''
+yes=''
+no=''
 
-# For some reason the Icons are mess up I don't know why but to fix it uncomment section 2 and comment section 1 but if the section 1 icons are mess up uncomment section 2 and comment section 1
+LOCK_COMMAND=i3lock-fancy-rapid 5 3
 
-	# Buttons
-	layout=`cat $HOME/.config/rofi/config/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
-	if [[ "$layout" == "TRUE" ]]; then
-  # Section 1
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "Goodbye Nikolai" \
+		-mesg "Uptime: $uptime" \
+		-theme ${dir}/powermenu.rasi
+}
 
-		shutdown=""
-		reboot=""
-		lock=""
-		suspend=""
-		logout=""
-  # Section 2
-#		shutdown="󰐥"
-#		reboot="󰜉"
-#		lock="󰍁"
-#		suspend="󰒲"
-#		logout="󰍃 "
-
-
-	else
-  # Section 1
-		shutdown=" Shutdown"
-		reboot=" Restart"
-		lock=" Lock"
-		suspend=" Sleep"
-		logout=" Logout"
-  # Section 2
-#		shutdown="󰐥Shutdown"
-#		reboot="󰜉 Restart"
-#		lock="󰍁 Lock"
-#		suspend="󰒲Sleep"
-#		logout="󰍃 Logout"
-	fi
-	ddir="$HOME/.config/rofi/config"
-fi
+# Confirmation CMD
+confirm_cmd() {
+	rofi -dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you sure?' \
+		-theme ${dir}/confirm.rasi
+}
 
 # Ask for confirmation
-rdialog () {
-rofi -dmenu\
-    -i\
-    -no-fixed-num-lines\
-    -p "Are You Sure? : "\
-    -theme "$ddir/confirm.rasi"
+confirm_exit() {
+	echo -e "$yes\n$no" | confirm_cmd
 }
 
-# Display Help
-show_msg() {
-	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
-# Variable passed to rofi
-options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
-
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
-case $chosen in
-    $shutdown)
-		ans=$(rdialog &)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+# Execute Command
+run_cmd() {
+	selected="$(confirm_exit)"
+	if [[ "$selected" == "$yes" ]]; then
+		if [[ $1 == '--shutdown' ]]; then
 			systemctl poweroff
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-			exit
-        else
-			show_msg
-        fi
-        ;;
-    $reboot)
-		ans=$(rdialog &)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-			exit
-        else
-			show_msg
-        fi
-        ;;
-    $lock)
-        sh $HOME/.local/bin/lock
-        ;;
-    $suspend)
-		ans=$(rdialog &)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
 			amixer set Master mute
-			sh $HOME/.local/bin/lock
-			systemctl suspend
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-			exit
-        else
-			show_msg
-        fi
+			$HOME/.config/i3/lock.sh | systemctl suspend
+		elif [[ $1 == '--logout' ]]; then
+			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+				openbox --exit
+			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
+				bspc quit
+			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+				i3-msg exit
+			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
+				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			fi
+		fi
+	else
+		exit 0
+	fi
+}
+
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+    $shutdown)
+		run_cmd --shutdown
+        ;;
+    $reboot)
+		run_cmd --reboot
+        ;;
+    $lock)
+		if [[ -x "$HOME/.config/i3/lock.sh" ]]; then
+			$HOME/.config/i3/lock.sh
+		elif [[ -x '/usr/bin/betterlockscreen' ]]; then
+			betterlockscreen -l
+		elif [[ -x '/usr/bin/i3lock' ]]; then
+			i3lock
+		fi
+        ;;
+    $suspend)
+		run_cmd --suspend
         ;;
     $logout)
-		ans=$(rdialog &)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-			bspc quit
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-			exit
-        else
-			show_msg
-        fi
+		run_cmd --logout
         ;;
 esac
-

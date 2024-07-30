@@ -18,4 +18,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+xss-lock -- /usr/bin/i3lock --nofork &
 exec i3 > $HOME/.i3.log 2>&1
