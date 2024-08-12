@@ -12,6 +12,15 @@ ZSH=/usr/share/oh-my-zsh/
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# conda-zsh-completion
+fpath+=~/.oh-my-zsh/plugins/conda-zsh-completion
+autoload -Uz compinit
+compinit
+#
+# plugins=(colored-man-pages conda-zsh-completion)
+#autoload -U compinit && compinit
 
 # List of plugins used
 plugins=(colored-man-pages)
@@ -97,23 +106,18 @@ alias mkdir='mkdir -p'
 #Display Pokemon
 # pokemon-colorscripts --no-title -r 1,3,6
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nikolai/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nikolai/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/nikolai/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nikolai/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/nikolai/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/nikolai/miniforge3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 #
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/usr/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/nikolai/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

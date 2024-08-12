@@ -15,4 +15,4 @@ else
 fi
 
 
-bash .config/polybar/launch
+bash .config/polybar/launch.sh
