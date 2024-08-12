@@ -221,7 +221,8 @@ exec xset b off
 
 exec --no-startup-id hsetroot -solid "#1e1e2e"
 exec --no-startup-id dunst &
-exec_always picom --config $HOME/.config/picom/picom.conf
+#exec_always picom --config $HOME/.config/picom/picom.conf
+exec_always xcompmgr &
 
 exec_always $HOME/.config/polybar/launch.sh
 
