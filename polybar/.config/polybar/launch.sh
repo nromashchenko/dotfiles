@@ -19,7 +19,7 @@ else
   primary=$(xrandr --query | grep primary | cut -d" " -f1)
 
   for m in $screens; do
-	#echo MONITOR $m
+    echo MONITOR $m
     if [[ $primary == $m ]]; then
         MONITOR=$m TRAY_POS=right polybar -q -r main -c "$DIR"/config.ini &
     else

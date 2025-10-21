@@ -106,18 +106,40 @@ alias mkdir='mkdir -p'
 #Display Pokemon
 # pokemon-colorscripts --no-title -r 1,3,6
 
-# <<< conda initialize <<<
-#
-
 # >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE='/usr/bin/micromamba';
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/nikolai/.local/bin/micromamba';
 export MAMBA_ROOT_PREFIX='/home/nikolai/micromamba';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
 else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+alias conda="mamba"
+alias mamba="micromamba"
+
+export PATH="/opt/cuda/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/home/nikolai/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/nikolai/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/nikolai/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/nikolai/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+
+# Real conda, a separate miniconda3 installation
+#alias conda="$HOME/miniconda3/bin/conda"
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
+#

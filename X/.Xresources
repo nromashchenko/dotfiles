@@ -56,5 +56,6 @@ URxvt*fading: 7
 
 
 ! DPI for hi-resolution screens
-Xft.dpi: 168
+! 168
+Xft.dpi: 192
 Xft.antialias: 1
